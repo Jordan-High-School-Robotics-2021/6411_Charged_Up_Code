@@ -43,4 +43,18 @@ private DifferentialDrive drive;
   {
     leftMotors.set(speed*Constants.DRIVE_TRAIN_SPEED);
   }
+  public void stop()
+  {
+    drive.stopMotor();
+  }
+
+  public void arcadeDrive(double speed, double turn){
+    drive.arcadeDrive(speed, turn);
+  }
+
+  public void tankDrive(double left,  double right)
+  {
+    drive.tankDrive(left,right);
+  }
+
 }
