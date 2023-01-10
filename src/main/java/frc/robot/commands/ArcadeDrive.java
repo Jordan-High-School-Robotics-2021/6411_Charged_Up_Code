@@ -14,7 +14,7 @@ public class ArcadeDrive extends CommandBase {
   private final DriveTrain m_driveTrain;
   private final XboxController m_driveController;
 
-  private double leftStickX;
+  private double rightStickY;
   private double leftStickY; 
 
   /** Creates a new ArcadeDrive. */
@@ -34,9 +34,9 @@ public class ArcadeDrive extends CommandBase {
   @Override
   public void execute() 
   {
-    leftStickX = Constants.DRIVE_TRAIN_SPEED * m_driveController.getRawAxis(Constants.XBOX_LEFT_X_AXIS);
+    rightStickY = Constants.DRIVE_TRAIN_SPEED * m_driveController.getRawAxis(Constants.XBOX_RIGHT_Y_AXIS);
     leftStickY = Constants.DRIVE_TRAIN_SPEED * m_driveController.getRawAxis(Constants.XBOX_LEFT_Y_AXIS);
-    m_driveTrain.arcadeDrive(leftStickY, leftStickX);
+    m_driveTrain.tankDrive(leftStickY, rightStickY);
   }
 
   // Called once the command ends or is interrupted.
